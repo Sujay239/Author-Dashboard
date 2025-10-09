@@ -5,7 +5,7 @@ import com.BookStore.Entity.Author;
 import com.BookStore.service.AuthorService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@Slf4j
 @RequestMapping("/api/authors")
 @Tag(name = "Author Management", description = "APIs for managing authors")
 public class AuthorController {
@@ -80,7 +79,7 @@ public class AuthorController {
     @PostMapping("/register")
     @Operation(summary = "Create a new author", description = "Create a new author with the provided details")
     public ResponseEntity<AuthorDTO> createAuthor(@RequestBody AuthorDTO authorDTO) {
-        log.info("{} {}", authorDTO.getPassword(), authorDTO.getBiography());
+//        log.info("{} {}", authorDTO.getPassword(), authorDTO.getBiography());
         authorDTO.setPassword(encoder.encode(authorDTO.getPassword()));
         AuthorDTO createdAuthor = authorService.createAuthor(authorDTO);
         return ResponseEntity.ok(createdAuthor);

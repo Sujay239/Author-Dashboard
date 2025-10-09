@@ -3,7 +3,7 @@ package com.BookStore.service;
 import com.BookStore.DTO.AuthorDTO;
 import com.BookStore.Entity.Author;
 import com.BookStore.repository.AuthorRepository;
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,10 +12,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 
 @Service
-@Slf4j
 public class AuthorService {
     @Autowired
     private AuthorRepository authorRepository;
@@ -47,7 +46,7 @@ public class AuthorService {
         author.setName(authorDTO.getName());
         author.setEmail(authorDTO.getEmail());
         author.setBio(authorDTO.getBiography());
-        log.info("{}",authorDTO.getPassword());
+//        log.info("{}",authorDTO.getPassword());
         author.setPassword(authorDTO.getPassword());
         Author savedAuthor = authorRepository.save(author);
         return convertToDTO(savedAuthor);
@@ -85,9 +84,9 @@ public class AuthorService {
     public AuthorDTO loginAuthor(AuthorDTO authorDTO, BCryptPasswordEncoder encoder) {
         Author author = authorRepository.findByEmail(authorDTO.getEmail())
                 .orElseThrow(() -> new RuntimeException("Author not found with email: " + authorDTO.getEmail()));
-        log.info("{} , {}",author.getPassword(),authorDTO.getPassword());
+//        log.info("{} , {}",author.getPassword(),authorDTO.getPassword());
         if (!encoder.matches(authorDTO.getPassword(), author.getPassword())) {
-            log.info("Password not  matches for email: {}" , authorDTO.getEmail());
+//            log.info("Password not  matches for email: {}" , authorDTO.getEmail());
             throw new RuntimeException("Invalid password for email: " + authorDTO.getEmail());
         }
         return convertToDTO(author);
