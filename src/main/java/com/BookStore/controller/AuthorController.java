@@ -1,6 +1,6 @@
 package com.BookStore.controller;
 
-import com.BookStore.dto.AuthorDTO;
+import com.BookStore.DTO.AuthorDTO;
 import com.BookStore.Entity.Author;
 import com.BookStore.service.AuthorService;
 import io.swagger.v3.oas.annotations.Operation;
