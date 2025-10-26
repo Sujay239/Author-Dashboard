@@ -1,6 +1,6 @@
 package com.BookStore.controller;
 
-import com.BookStore.DTO.AuthorDTO;
+import com.BookStore.dto.AuthorDTO;
 import com.BookStore.Entity.Author;
 import com.BookStore.service.AuthorService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,7 +14,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+// import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import jakarta.persistence.criteria.Predicate;
 import java.util.ArrayList;
